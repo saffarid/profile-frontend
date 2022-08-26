@@ -1,0 +1,53 @@
+{
+  "name": "mevn-template",
+  "version": "0.1.1",
+  "private": true,
+  "scripts": {
+    "serve": "vue-cli-service serve",
+    "build": "vue-cli-service build",
+    "lint": "vue-cli-service lint"
+  },
+  "dependencies": {
+    "@vue/runtime-core": "^3.2.33",
+    "core-js": "3.22.0",
+    "node-sass": "6.0.0",
+    "saffarid-ui-kit": "0.2.1",
+    "@vue/reactivity": "3.2.2",
+    "sass-loader": "10.2.1",
+    "vue": "3.2.2"
+  },
+  "devDependencies": {
+    "html-webpack-plugin": "5.5.0",
+    "extract-text-webpack-plugin": "3.0.2",
+    "happypack": "5.0.1",
+    "speed-measure-webpack-plugin": "^1.5.0",
+    "@vue/cli-plugin-babel": "~4.5.17",
+    "@vue/cli-service": "~4.5.17",
+    "@vue/compiler-sfc": "^3.0.0",
+    "@vue/reactivity": "3.2.2",
+    "vue3-tabs-component": "1.0.8",
+    "babel-eslint": "^10.1.0",
+    "eslint": "^6.7.2",
+    "eslint-plugin-vue": "^7.0.0",
+    "webpack-bundle-analyzer": "^4.5.0"
+  },
+  "eslintConfig": {
+    "root": true,
+    "env": {
+      "node": true
+    },
+    "extends": [
+      "plugin:vue/vue3-essential",
+      "eslint:recommended"
+    ],
+    "parserOptions": {
+      "parser": "babel-eslint"
+    },
+    "rules": {}
+  },
+  "browserslist": [
+    "> 1%",
+    "last 2 versions",
+    "not dead"
+  ]
+}

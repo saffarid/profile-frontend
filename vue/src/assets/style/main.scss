@@ -1,0 +1,40 @@
+@import "variable";
+
+body {
+    margin: 0;
+    height: 100vh;
+}
+
+#app {
+    height: 100vh;
+    font-family: "Yandex Sans Text";
+    .site {
+        height: 100vh;
+        overflow: hidden;
+        .workspace {
+            height: 98.8%;
+            width: 80%;
+            margin: 5px;
+        }
+    }
+}
+
+::-webkit-scrollbar {
+    width: 0px;
+    height: 0px;
+}
+
+::-webkit-scrollbar-track {
+    border-radius: 5px;
+    background-color: #343A40;
+    margin: 1px;
+}
+
+::-webkit-scrollbar-button {
+    display: none;
+}
+
+::-webkit-scrollbar-thumb {
+    border-radius: 5px;
+    background-color: #747474;
+}

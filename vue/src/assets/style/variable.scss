@@ -1,0 +1,26 @@
+
+.dimension{
+  --button_font:20px;
+  --button_border: 2px;
+  --button_radius: 25px;
+  --button_padding: 5px;
+
+  --navigate_menu_width: 150px;
+  --navigate_menu_height: 100%;
+  --navigate_button_height: 20px;
+
+  --publication_item_h: 140px;
+}
+
+.light {
+  --primary_color: #535152;
+  --secondary_color: #535152;
+
+  --action_component: #535152;
+  --action_component_hover: #535152;
+  --action_component_disable: #535152;
+
+  --action_component_content: #535152;
+  --action_component_content_hover: white;
+  --action_component_content_disable: #535152;
+}
