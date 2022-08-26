@@ -1,0 +1,136 @@
+<template>
+    <div class="recycler-view" @wheel="scrollOnCur($event)" :style="styleVars">
+        <component class="cur" :is="screens[_screens.cur].workspace" />
+        <component class="prev" :is="screens[_screens.prev].workspace"/>
+        <component class="next" :is="screens[_screens.next].workspace"/>
+    </div>
+</template>
+
+<script>
+   import {
+      reactive,
+   } from 'vue'
+
+   export default {
+      name: 'RecyclerView',
+      props: {
+         screens: {
+            type: Array,
+            required: true,
+         },
+      },
+      setup(props) {
+
+         const _screens = reactive({})
+         const stepDelay = 20
+
+         const z_indexes = {
+            front: '1',
+            back: '-1',
+         }
+
+         let lastScroll = new Date()
+
+         const styleVars = reactive({
+            '--z-index-prev': z_indexes.back,
+            '--z-index-next': z_indexes.front,
+            '--offset-y': 0 + 'vh',
+            '--time-animation': 0.5 + 's',
+         })
+
+         if (props.screens.length == 2) {
+            _screens.prev = 1
+            _screens.cur = 0
+            _screens.next = 1
+         }
+         else if (props.screens.length > 2) {
+            _screens.prev = props.screens.length - 1
+            _screens.cur = 0
+            _screens.next = 1
+         }
+
+         const clickOnCur = () => {
+            _screens.prev = _screens.cur
+            _screens.cur = _screens.next
+            _screens.next = (_screens.next + 1 == props.screens.length) ? (0) : (_screens.next + 1)
+         }
+
+         const scrollOnCur = (event) => {
+            console.log(event)
+
+            if((new Date().getTime() - lastScroll.getTime()) < parseFloat(styleVars['--time-animation'].replace('s', ''))*100) return
+
+            styleVars['--offset-y'] = (parseInt(styleVars['--offset-y'].replace('vh', '')) - (event.deltaY) / stepDelay) + 'vh'
+
+            console.log(styleVars['--offset-y'])
+
+            if (parseInt(styleVars['--offset-y'].replace('vh', '')) < 0) {
+               if (styleVars['--z-index-next'] < styleVars['--z-index-prev']) {
+                  styleVars['--z-index-next'] = z_indexes.front
+                  styleVars['--z-index-prev'] = z_indexes.back
+               }
+
+               if(parseInt(styleVars['--offset-y'].replace('vh', '')) <= -101){
+                  _screens.prev = _screens.cur
+                  _screens.cur = _screens.next
+                  _screens.next = (_screens.next + 1 == props.screens.length) ? (0) : (_screens.next + 1)
+
+                  styleVars['--offset-y'] = 0 + 'vh'
+               }
+            }
+            if (parseInt(styleVars['--offset-y'].replace('vh', '')) > 0) {
+
+               if (styleVars['--z-index-next'] > styleVars['--z-index-prev']) {
+                  styleVars['--z-index-next'] = z_indexes.back
+                  styleVars['--z-index-prev'] = z_indexes.front
+               }
+
+               if(parseInt(styleVars['--offset-y'].replace('vh', '')) >= 101){
+                  _screens.next = _screens.cur
+                  _screens.cur = _screens.prev
+                  _screens.prev = (_screens.prev - 1 == -1) ? (props.screens.length - 1) : (_screens.prev - 1)
+
+                  styleVars['--offset-y'] = 0 + 'vh'
+               }
+            }
+            lastScroll = new Date()
+         }
+
+         return {
+            _screens,
+            clickOnCur,
+            scrollOnCur,
+            styleVars,
+         }
+
+      },
+   }
+</script>
+
+<style lang="scss" scoped>
+
+    .recycler-view {
+        overflow-y: hidden;
+        height: 100vh;
+        max-height: 100vh;
+
+        .cur {
+            z-index: 10;
+            position: absolute;
+            transform: translateY(var(--offset-y));
+            transition: transform var(--time-animation) ;
+        }
+
+        .prev {
+            z-index: var(--z-index-prev);
+            position: absolute;
+        }
+
+        .next {
+            z-index: var(--z-index-next);
+            position: absolute;
+        }
+    }
+
+
+</style>

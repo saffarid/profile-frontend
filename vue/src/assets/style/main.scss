@@ -3,20 +3,14 @@
 body {
     margin: 0;
     height: 100vh;
+    width: 100vw;
+    overflow: hidden;
 }
 
 #app {
     height: 100vh;
-    font-family: "Yandex Sans Text";
-    .site {
-        height: 100vh;
-        overflow: hidden;
-        .workspace {
-            height: 98.8%;
-            width: 80%;
-            margin: 5px;
-        }
-    }
+    width: 100vw;
+    overflow: hidden;
 }
 
 ::-webkit-scrollbar {
