@@ -6,6 +6,8 @@ const express = require("express")
 const mongoos = require("mongoose")
 const bodyParser = require("body-parser")
 
+const work = require('./js/work/work')
+
 /**
  * Парсер json-в запросах
  * */
@@ -42,5 +44,15 @@ app
             }
             res.end();
         })
+    })
+    .post(/\/work(\/.+)?/, (req, res) => {
+        if (!req.body) res.sendStatus(400)
+        work.execute(req.url, req.body)
+            .then(data => {
+                res.json(data)
+            })
+            .catch((err) => {
+                res.json(err)
+            })
     })
 
