@@ -24,19 +24,19 @@ module.exports = {
         },
     },
 
-    css: {
-        loaderOptions: {
-            sass: {
-                additionalData: '@import "@/assets/style/variable.scss";'
-            }
-        }
-    },
-
+    // css: {
+    //     loaderOptions: {
+    //         sass: {
+    //             additionalData: '@import "@/assets/style/variable.scss";'
+    //         }
+    //     }
+    // },
 
     chainWebpack: config => {
         config.plugins.delete('preload')
         config.plugins.delete('prefetch')
     },
+
     configureWebpack: {
 
         plugins: [
@@ -56,10 +56,10 @@ module.exports = {
             //     verbose: true
             // })
         ],
-        // cache: {
-        //     type: 'memory',
-        //     cacheUnaffected: true,
-        // },
+        cache: {
+            type: 'memory',
+            cacheUnaffected: true,
+        },
         optimization: {
             // runtimeChunk: 'single',
             splitChunks: {

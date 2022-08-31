@@ -13,8 +13,8 @@
 <style lang="scss" scoped>
 
     .skills{
-        height: 100vh;
-        width: 100vw;
+        height: 100%;
+        width: 100%;
         background: darkslategrey;
     }
 
