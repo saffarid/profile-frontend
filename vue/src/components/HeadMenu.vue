@@ -1,7 +1,7 @@
 <template>
     <div class="head-menu" :style="styleVars">
         <template v-for="(screen, index) of screens" :key="index">
-            <Buttton
+            <TextButtton
                     @click="clickOnItem(index)"
                     :text="screen.title"/>
         </template>
@@ -12,11 +12,11 @@
    import {
       reactive
    }              from 'vue'
-   import Buttton from './input/Button'
+   import TextButtton from './input/TextButton'
    export default {
       name: 'HeadMenu',
       components:{
-         Buttton,
+         TextButtton,
       },
       props:{
          screens: {

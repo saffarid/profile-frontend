@@ -1,8 +1,8 @@
 <template>
     <div class="recycler-view" @wheel="scrollOnCur($event)" :style="styleVars">
-        <component class="cur" :is="screens[_screens.cur].workspace"/>
-        <component class="prev" :is="screens[_screens.prev].workspace"/>
-        <component class="next" :is="screens[_screens.next].workspace"/>
+        <component class="node-cur"  :is="screens[_screens.cur].workspace"/>
+        <component class="node-prev" :is="screens[_screens.prev].workspace"/>
+        <component class="node-next" :is="screens[_screens.next].workspace"/>
     </div>
 </template>
 
@@ -112,8 +112,6 @@
             _screens.cur = index
             _screens.next = (index + 1 == props.screens.length) ? (0) : (index + 1)
 
-            console.log('Я сменил страничку watch')
-
             styleVars['--offset-y'] = 0 + 'vh'
          }
 
@@ -137,22 +135,22 @@
 
     .recycler-view {
         overflow-y: hidden;
-        height: 100vh;
-        max-height: 100vh;
+        height: 100%;
+        max-height: 100%;
 
-        .cur {
+        .node-cur {
             z-index: 10;
             position: absolute;
             transform: translateY(var(--offset-y));
             transition: transform var(--time-animation);
         }
 
-        .prev {
+        .node-prev {
             z-index: var(--z-index-prev);
             position: absolute;
         }
 
-        .next {
+        .node-next {
             z-index: var(--z-index-next);
             position: absolute;
         }

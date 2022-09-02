@@ -1,21 +1,13 @@
 <template>
-    <button class="button" @click="click">{{text}}</button>
+    <button class="image-button">
+        <slot/>
+    </button>
 </template>
 
 <script>
    export default {
-      name: 'Buttton',
+      name: 'ImageButton',
       props:{
-         click:{
-            type: Function,
-            required: false,
-            default: () => {}
-         },
-         text:{
-            type: String,
-            required: true,
-
-         },
          disabled:{
             type: Boolean,
             required: false,

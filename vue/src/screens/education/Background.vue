@@ -7,10 +7,8 @@
         <path :d="path" fill="#5E0000"/>
 
         <template v-for="i in 100">
-
             <line :x1="lineParam.x1 - i*50" :y1="lineParam.y1" :x2="lineParam.x2 - i*50" :y2="lineParam.y2" stroke-width="20"
                   stroke="#6B0707"/>
-
         </template>
     </svg>
 </template>
