@@ -6,16 +6,16 @@ const _screens = [
       workspace: defineAsyncComponent(() => import('./profile/Profile')),
    },
    {
-      title: 'Образование',
-      workspace: defineAsyncComponent(() => import('./education/Education')),
-   },
-   {
-      title: 'Работа',
-      workspace: defineAsyncComponent(() => import('./job/Job')),
-   },
-   {
       title: 'Навыки',
-      workspace: defineAsyncComponent(() => import('./skills/Skills')),
+      workspace: defineAsyncComponent(() => import('./competition/Competition')),
+   },
+   {
+      title: 'Портфолио',
+      workspace: defineAsyncComponent(() => import('./portfolio/Portfolio')),
+   },
+   {
+      title: 'Контакты',
+      workspace: defineAsyncComponent(() => import('./contact/Contact')),
    }
 
 ]

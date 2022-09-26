@@ -8,9 +8,9 @@
         </ImageButton>
 
         <div style="width: 100%">
-            <component class="node-cur" :is="cards[_cards.cur].card"/>
-            <component aria-hidden="true" class="node-prev" :is="cards[_cards.prev].card"/>
-            <component aria-hidden="true" class="node-next" :is="cards[_cards.next].card"/>
+            <component class="node-cur" :is="cards[_cards.cur].card" :data="cards[_cards.cur].data"/>
+            <component aria-hidden="true" class="node-prev" :is="cards[_cards.prev].card" :data="cards[_cards.prev].data"/>
+            <component aria-hidden="true" class="node-next" :is="cards[_cards.next].card" :data="cards[_cards.next].data"/>
         </div>
 
         <div class="bullet_wrapper" ref="bulletWrapper">

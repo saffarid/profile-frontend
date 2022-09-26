@@ -134,7 +134,12 @@ module.exports = {
     * Сущности с которыми проводятся взаимодействия
     * */
    ESSENCE: {
-
+      freelance:{
+         name: 'freelance',
+         actions:{
+            get: 'get'
+         }
+      }
    },
 
    NEW_OBJECTS: {

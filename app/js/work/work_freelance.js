@@ -1,12 +1,20 @@
 const api = require('./../../api/api_desc')
-const freelance = require('./work_freelance')
+const f = require('./../../datas/freelance')
 
+const get = () => {
+    return new Promise((resolve, reject) => {
+        resolve({
+            ...api.CODES_RESPONSE.ok,
+            datas: f.f
+        })
+    })
+}
 
 const execute = (url, data) => {
     const request = url.split('/')
-    switch (request[2]) {
-        case api.ESSENCE.freelance.name : {
-            return freelance.execute(url, data)
+    switch (request[3]) {
+        case api.ESSENCE.freelance.actions.get : {
+            return get()
         }
         default: {
             return new Promise((resolve, reject) => {

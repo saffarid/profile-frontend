@@ -8,12 +8,12 @@ const isObject = (arg) => {
 /**
  * Функция копирует один объект в другой
  * */
-const objectCopy = (copied, target) => {
+const copy = (copied, target) => {
 
     Object.keys(copied).forEach(key => {
         if (isObject(copied[key])){
             target[key] = {}
-            objectCopy(copied[key], target[key])
+            copy(copied[key], target[key])
         } else {
             target[key] = copied[key]
         }
@@ -23,5 +23,5 @@ const objectCopy = (copied, target) => {
 
 export default {
     isObject,
-    objectCopy
+    copy
 }

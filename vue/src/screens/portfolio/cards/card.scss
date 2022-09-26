@@ -1,0 +1,38 @@
+.card {
+  padding: 10px
+}
+
+.title {
+  color: #ffffff;
+  font-family: "Segoe UI";
+  font-size: 10vh;
+  font-weight: 600;
+  text-align: center;
+  justify-items: center;
+  justify-content: center;
+}
+
+.desc {
+  color: #ffffff;
+  font-family: "Segoe UI";
+}
+
+.link {
+  color: #ffffff;
+  font-family: "Segoe UI";
+  font-size: 5vh;
+  font-weight: 600;
+  text-align: center;
+  justify-items: center;
+  justify-content: center;
+}
+
+@media (max-height: 500px) {
+  .title {
+    font-size: 50px;
+  }
+
+  .link {
+    font-size: 25px;
+  }
+}
