@@ -7,7 +7,7 @@ const _screens = [
    },
    {
       title: 'Навыки',
-      workspace: defineAsyncComponent(() => import('./competition/Competition')),
+      workspace: defineAsyncComponent(() => import('./technologies/Thechnologies')),
    },
    {
       title: 'Портфолио',
