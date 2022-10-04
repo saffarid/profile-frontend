@@ -1,5 +1,5 @@
 <template>
-    <svg : :width="width" :height="height" viewBox="0 0 79.361 90">
+    <svg :x="x" :y="y" :width="width" :height="height" viewBox="0 0 79.361 90">
         <g transform="translate(-3.655 -2)">
             <path d="M10.877,83,3.655,2H83.016L75.784,82.99,43.287,92Z" transform="translate(0)" fill="#e44f26"/>
             <path d="M16,80.537l26.288-7.279,6.184-69.2H16Z" transform="translate(27.294 4.571)" fill="#f1662a"/>

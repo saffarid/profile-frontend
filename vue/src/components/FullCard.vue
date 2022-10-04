@@ -28,4 +28,13 @@
             border-radius: 50px;
         }
     }
+
+    @media (max-height: 550px) {
+        .outer_background{
+            .inner_background{
+                top:55px;
+                height: 440px;
+            }
+        }
+    }
 </style>

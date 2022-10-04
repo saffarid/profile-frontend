@@ -58,8 +58,10 @@
     }
 
     @media (max-height: 600px) {
-        .button {
-            font-size: 15px;
+        .head-menu{
+            .text-button{
+                font-size: 15px;
+            }
         }
     }
 </style>
