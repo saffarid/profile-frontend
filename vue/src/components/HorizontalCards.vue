@@ -1,5 +1,5 @@
 <template>
-    <div class="horizontal-card" ref="horizontalCard" :style="styleVars" @keyup.right="toNext" @keyup.left="toPrev" @keyup="keyup($event)">
+    <div class="horizontal-card" ref="horizontalCard" :style="styleVars" @keyup.right="toNext" @keyup.left="toPrev" >
         <ImageButton class="button-back" ref="back" @click="toPrev">
             <SvgBack :height="buttonSizes.size" :width="buttonSizes.size"/>
         </ImageButton>
@@ -121,10 +121,6 @@
          }
 
          watch(horizontalCard, () => {
-            horizontalCard.value.addEventListener('keyup', (event) => {
-               console.log(event)
-            })
-            horizontalCard.value.focus()
             calcSizes()
             window.addEventListener('resize', calcSizes)
          })
@@ -181,16 +177,10 @@
 
          }
 
-         const keyup = (event) => {
-            console.log(event)
-         }
 
-         onBeforeUnmount(() => {
-            horizontalCard.value.removeEventListener('keyup')
-         })
+
 
          return {
-            keyup,
             back,
             bulletWrapper,
             buttonSizes,

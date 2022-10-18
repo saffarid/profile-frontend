@@ -8,14 +8,10 @@
 </template>
 
 <script>
-    import SvgMixin from "../../components/mixins/SvgMixin";
+   import SvgMixin from '../../components/mixins/SvgMixin'
 
-    export default {
-        name: "SvgTelegram",
-        mixins:[SvgMixin],
-    }
+   export default {
+      name: 'SvgTelegram',
+      mixins: [SvgMixin],
+   }
 </script>
-
-<style scoped>
-
-</style>

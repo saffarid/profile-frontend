@@ -44,7 +44,7 @@
 <style lang="scss" scoped>
     .head-menu{
         display: grid;
-        grid-template-columns: repeat(var(--screen_count), minmax(min-content, 250px));
+        grid-template-columns: repeat(var(--screen_count), minmax(min-content, 190.5px));
         column-gap: 1px;
         align-self: stretch;
         align-content: stretch;
@@ -52,7 +52,7 @@
         justify-items: stretch;
         justify-content: center;
         justify-self: center;
-        padding: 5px;
+        padding: 2px 0;
         background: rgba(72, 72, 72, 0.75);
         min-height: 30px;
     }

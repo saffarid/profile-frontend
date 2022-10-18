@@ -69,7 +69,7 @@
         position: absolute;
         z-index: 100;
         width: 100%;
-        height: 5vh;
+        /*height: 5vh;*/
     }
 
 
