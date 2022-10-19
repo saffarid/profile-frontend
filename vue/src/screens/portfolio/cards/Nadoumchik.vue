@@ -4,7 +4,7 @@
             <div class="d">
                 <div class="title">{{data.title}}</div>
                 <div class="desc">{{data.desc}}</div>
-                <a class="link" target="_blank" href="http://192.168.0.58:20200/">ПЕРЕЙТИ</a>
+                <a class="link" target="_blank" href="nadoumchik.ru">ПЕРЕЙТИ</a>
             </div>
             <div class="image">Перейти на сайт</div>
         </div>
@@ -12,7 +12,7 @@
 </template>
 
 <script>
-    import FullCard from "../../../components/FullCard";
+    import FullCard from "@/components/FullCard";
 
     export default {
         name: 'nadoumchik',

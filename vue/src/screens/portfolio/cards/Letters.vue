@@ -13,7 +13,7 @@
 </template>
 
 <script>
-    import FullCard from "../../../components/FullCard";
+    import FullCard from "@/components/FullCard";
 
     export default {
         name: 'Letters',
