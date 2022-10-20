@@ -1,11 +1,7 @@
 <template>
     <div class="item">
-        <div class="title">
-            {{title}}
-        </div>
-
+        <span class="title">{{title}}</span>
         <component :is="image"/>
-
     </div>
 </template>
 
@@ -31,7 +27,7 @@
     }
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss">
     .item {
         display: grid;
         grid-template-areas: "title" "image";
@@ -51,8 +47,8 @@
         .title {
             grid-area: title;
             white-space: pre;
+            letter-spacing: .1em;
         }
-
 
         svg {
             grid-area: image;

@@ -13,8 +13,14 @@
 }
 
 .light {
-  --primary_color: #535152;
-  --secondary_color: #535152;
+  //--primary_color: #535152;
+  --primary_color: #27282c;
+  --secondary_color_A: #2E282D;
+  --secondary_color_B: #333830;
+  --additional_color: #8F663F;
+
+  --primary_text: #ffffff;
+  --secondary_text:#a9a9ab;
 
   --action_component: #535152;
   --action_component_hover: #535152;

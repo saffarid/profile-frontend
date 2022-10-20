@@ -1,46 +1,46 @@
 <template>
-    <FullCard style="--inner_color: #014a5f; --outer_color: #005f7b;" ref="FullCard">
+    <BackgroundCard ref="FullCard"
+                    :type="b_card_types.rect"
+                    :options="{'--width':'88%',
+                               '--height':'85%',
+                               '--inner_color': 'var(--primary_color)',
+                               '--outer_color': '#014a5f'}" >
         <div class="card thoth">
             <div class="images">
                 <img @click="showImage($event)" class="image products"
-                     :width="width"
                      :src="'/img/png/products.png'">
-
                 <img @click="showImage($event)" class="image purchase"
-                     :width="width"
                      :src="'/img/png/purchase.png'"/>
                 <img @click="showImage($event)" class="image settings"
-                     :width="width"
                      :src="'/img/png/settings.png'">
-
                 <img @click="showImage($event)" class="image types_of_products"
-                     :width="width"
                      :src="'/img/png/types%20of%20products.png'">
             </div>
             <div class="d">
                 <div class="title">{{data.title}}</div>
                 <div class="desc">{{data.desc}}</div>
-                <Button class="link">СКАЧАТЬ</Button>
+                <Button class="link">Скачать</Button>
             </div>
         </div>
 
-    </FullCard>
+    </BackgroundCard>
 </template>
 
 <script>
    import {
       Button,
-   }               from 'saffarid-ui-kit'
-   import FullCard from '@/components/FullCard'
+   }                       from 'saffarid-ui-kit'
+   import BackgroundCard   from '../../../components/backgrounds_card/BackgroundCard'
+   import { b_card_types } from '../../../components/backgrounds_card/b_card_types'
    import {
       ref,
       watch,
-   }               from 'vue'
+   }                       from 'vue'
 
    export default {
       name: 'thoth',
       components: {
-         FullCard,
+         BackgroundCard,
          Button,
       },
       props: {
@@ -78,6 +78,7 @@
             FullCard,
             width,
             showImage,
+            b_card_types,
          }
       },
    }
@@ -87,14 +88,9 @@
 
     @import "card";
 
-    .show_image {
-        position: absolute;
-        width: 56vw;
-    }
-
     .thoth {
         display: grid;
-        grid-template-columns: 3fr 2fr;
+        grid-template-columns: 3fr 1fr;
 
         height: 96%;
 
@@ -116,6 +112,13 @@
             align-items: center;
 
             .image {
+                width: 100%;
+            }
+
+            .show_image {
+                position: absolute;
+                margin: auto;
+                width: 80vw;
             }
         }
 

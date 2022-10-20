@@ -55,13 +55,13 @@
         padding: 2px 0;
         background: rgba(72, 72, 72, 0.75);
         min-height: 30px;
-    }
 
-    @media (max-height: 600px) {
-        .head-menu{
-            .text-button{
-                font-size: 15px;
-            }
+        .text-button{
+            letter-spacing: .1em;
+            font-size: 16px;
+            font-weight: 500;
+            cursor: pointer;
         }
     }
+
 </style>

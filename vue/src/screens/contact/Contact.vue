@@ -1,5 +1,9 @@
 <template>
-    <FullCard style="--inner_color: #616161; --outer_color: #747474;">
+    <BackgroundCard :type="b_card_types.rect"
+                    :options="{
+                       '--inner_color':'#616161',
+                       '--outer_color':'#747474'
+                    }">
         <div class="contacts">
             <span class="title">КОНТАКТЫ</span>
             <div class="contacts_list">
@@ -15,22 +19,21 @@
                 </template>
             </div>
         </div>
-    </FullCard>
+    </BackgroundCard>
 
 </template>
 
 <script>
-   import FullCard from '../../components/FullCard'
    import {
       defineAsyncComponent,
       inject,
-   }               from 'vue'
+   }                       from 'vue'
+   import { b_card_types } from '../../components/backgrounds_card/b_card_types'
+   import BackgroundCard   from '../../components/backgrounds_card/BackgroundCard'
 
    export default {
       name: 'Contact',
-      components: {
-         FullCard,
-      },
+      components: { BackgroundCard },
       setup() {
          const contacts = inject('profile').contact
          let imgIsLoad = false
@@ -43,6 +46,7 @@
          }
 
          return {
+            b_card_types,
             contacts,
          }
       },
@@ -80,7 +84,6 @@
             justify-content: start;
             justify-items: start;
             justify-self: center;
-            /*padding: 10%;*/
 
             .contact {
                 height: 100%;

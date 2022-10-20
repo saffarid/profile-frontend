@@ -126,8 +126,6 @@
          })
 
          const setCurCard = (index) => {
-            console.log(index)
-
             styleVars['--cur-offset-x'] = 0 + '%'
             styleVars['--prev-offset-x'] = -100 + 'vw'
             styleVars['--next-offset-x'] = 100 + 'vw'

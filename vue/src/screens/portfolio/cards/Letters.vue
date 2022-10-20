@@ -1,32 +1,42 @@
 <template>
-    <FullCard style="--inner_color: #b43503; --outer_color: #a12f02;">
+    <BackgroundCard :type="b_card_types.rect"
+                    :options="{'--width':'88%',
+                               '--height':'85%',
+                               '--inner_color':'var(--primary_color)',
+                               '--outer_color': '#6d3622'}">
         <div class="card letters">
-            <div class="title">{{data.title}}</div>
             <div class="l">
-                <div class="link">
-                    <iframe src="./letters/elemy/letter.html" frameborder="0" scrolling="no"/>
-                </div>
-                <div class="desc"></div>
+                <div class="title">{{data.title}}</div>
+                <div class="desc">{{data.desc}}</div>
+            </div>
+            <div class="view">
+                <iframe src="./letters/elemy/letter.html" frameborder="0" scrolling="no"/>
             </div>
         </div>
-    </FullCard>
+    </BackgroundCard>
 </template>
 
 <script>
-    import FullCard from "@/components/FullCard";
+   import BackgroundCard   from '../../../components/backgrounds_card/BackgroundCard'
+   import { b_card_types } from '../../../components/backgrounds_card/b_card_types'
 
-    export default {
-        name: 'Letters',
-        components: {
-            FullCard
-        },
-        props: {
-            data: {
-                type: Object,
-                required: false
-            }
-        }
-    }
+   export default {
+      name: 'Letters',
+      components: {
+         BackgroundCard,
+      },
+      props: {
+         data: {
+            type: Object,
+            required: false,
+         },
+      },
+      setup() {
+         return {
+            b_card_types,
+         }
+      },
+   }
 </script>
 
 <style lang="scss" scoped>
@@ -35,7 +45,7 @@
 
     .letters {
         display: grid;
-        grid-template-rows: 100px auto;
+        grid-template-columns: 1fr minmax(800px, 3fr);
         row-gap: 5px;
         align-self: stretch;
         justify-self: stretch;
@@ -43,7 +53,7 @@
 
         .l {
             display: grid;
-            grid-template-columns: 2fr 1fr;
+            grid-template-rows: 100px auto;
             align-content: stretch;
             align-items: stretch;
             align-self: stretch;
@@ -51,23 +61,27 @@
             justify-items: stretch;
             justify-self: stretch;
 
-            .link {
-                display: grid;
-                align-self: stretch;
-                justify-items: center;
-                justify-content: stretch;
-                justify-self: stretch;
-                align-content: stretch;
-                align-items: stretch;
-                overflow-y: auto;
-                iframe {
-                    width: 81.6%;
-                    height: 320%;
-                    overflow-y: hidden;
-                }
+            .desc {
+
             }
         }
 
+        .view {
+            display: grid;
+            align-self: stretch;
+            justify-items: center;
+            justify-content: stretch;
+            justify-self: stretch;
+            align-content: stretch;
+            align-items: stretch;
+            overflow-y: auto;
+
+            iframe {
+                width: 81.6%;
+                height: 320%;
+                overflow-y: hidden;
+            }
+        }
     }
 
 </style>

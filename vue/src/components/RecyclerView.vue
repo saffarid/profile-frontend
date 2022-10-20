@@ -66,8 +66,6 @@
 
             styleVars['--offset-y'] = (parseInt(styleVars['--offset-y'].replace('vh', '')) - (event.deltaY) / stepDelay) + 'vh'
 
-            console.log(styleVars['--offset-y'])
-
             if (parseInt(styleVars['--offset-y'].replace('vh', '')) < 0) {
                if (styleVars['--z-index-next'] < styleVars['--z-index-prev']) {
                   styleVars['--z-index-next'] = z_indexes.front

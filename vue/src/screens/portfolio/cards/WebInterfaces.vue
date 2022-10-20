@@ -1,5 +1,10 @@
 <template>
-    <FullCard ref="FullCard" style="--inner_color: #004e02; --outer_color: #015803;">
+    <BackgroundCard ref="FullCard"
+                    :type="b_card_types.rect"
+                    :options="{'--width':'88%',
+                               '--height':'85%',
+                               '--inner_color':'var(--primary_color)',
+                               '--outer_color':'rgba(55,65,81, 1)'}">
         <div class="card web_interfaces">
             <div class="d">
                 <div class="title">{{data.title}}</div>
@@ -17,17 +22,18 @@
                      :src="'/img/png/ats_1204 (1).png'">
             </div>
         </div>
-    </FullCard>
+    </BackgroundCard>
 </template>
 
 <script>
-   import FullCard       from '@/components/FullCard'
-   import { ref, watch } from 'vue'
+   import { ref, watch }   from 'vue'
+   import BackgroundCard   from '../../../components/backgrounds_card/BackgroundCard'
+   import { b_card_types } from '../../../components/backgrounds_card/b_card_types'
 
    export default {
       name: 'WebInterfaces',
       components: {
-         FullCard,
+         BackgroundCard,
       },
       props: {
          data: {
@@ -35,7 +41,7 @@
             required: false,
          },
       },
-      setup(){
+      setup() {
          let activeImage = null
 
          const width = ref(0)
@@ -64,10 +70,11 @@
          return {
             FullCard,
             width,
-            showImage
+            showImage,
+            b_card_types,
          }
 
-      }
+      },
    }
 </script>
 
@@ -75,14 +82,9 @@
 
     @import "card";
 
-    .show_image {
-        position: absolute;
-        width: 56vw;
-    }
-
     .web_interfaces {
         display: grid;
-        grid-template-columns: 2fr 3fr;
+        grid-template-columns: 1fr 3fr;
         height: 96%;
 
         padding: 1%;
@@ -103,6 +105,13 @@
             align-items: center;
 
             .image {
+                width: 100%;
+            }
+
+            .show_image {
+                position: absolute;
+                margin: auto;
+                width: 80vw;
             }
         }
 

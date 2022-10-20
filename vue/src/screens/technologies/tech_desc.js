@@ -2,7 +2,7 @@ import {defineAsyncComponent} from "vue";
 
 export const technologies = [
     {
-        title: 'Верстка',
+        title: 'ВЕРСТКА',
         list: [
             {
                 title: 'HTML',
@@ -19,7 +19,7 @@ export const technologies = [
         ],
     },
     {
-        title: 'Фреймворки',
+        title: 'ФРЕЙМВОРКИ',
         list: [
             {
                 title: 'Angular',
@@ -32,7 +32,7 @@ export const technologies = [
         ],
     },
     {
-        title: 'Языки',
+        title: 'ЯЗЫКИ',
         list: [
             {
                 title: 'Java',
@@ -41,7 +41,7 @@ export const technologies = [
         ],
     },
     {
-        title: 'Макеты',
+        title: 'МАКЕТЫ',
         list: [
             {
                 title: 'Adobe XD',
