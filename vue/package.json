@@ -11,12 +11,11 @@
     "@vue/runtime-core": "^3.2.33",
     "core-js": "3.22.0",
     "node-sass": "6.0.0",
-    "saffarid-ui-kit": "0.2.1",
+    "saffarid-ui-kit": "0.3.1",
     "@vue/reactivity": "3.2.2",
     "babel-loader": "8.2.5",
     "cache-loader": "4.1.0",
     "sass-loader": "10.2.1",
-    "vue-loader": "17.0.0",
     "vue": "3.2.2",
     "vue-next-select": "2.1.1",
     "json-templater": "1.2.0"
