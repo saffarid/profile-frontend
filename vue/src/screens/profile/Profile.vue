@@ -20,21 +20,21 @@
 </template>
 
 <script>
-    import {
-        inject,
-        ref,
-    } from 'vue'
+   import {
+      inject,
+      ref,
+   } from 'vue'
 
-    export default {
-        name: 'Profile',
-        setup() {
-            const profile = inject('profile').profile
+   export default {
+      name: 'Profile',
+      setup() {
+         const profile = inject('profile').profile
 
-            return {
-                profile
-            }
-        }
-    }
+         return {
+            profile,
+         }
+      },
+   }
 </script>
 
 <style lang="scss" scoped>
@@ -80,7 +80,11 @@
             .desc {
                 display: grid;
                 align-content: center;
-                max-width: 50%;
+                text-align: justify;
+
+                span {
+                    text-align: justify;
+                }
             }
 
             .list {

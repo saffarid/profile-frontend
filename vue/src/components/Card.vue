@@ -19,7 +19,17 @@
    }
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss">
+
+    $radius: var(--radius, 20px);
+    $width: var(--width, 80%);
+    $height: var(--height, 80%);
+    $min_height: var(--min_height, 750px);
+
+    $fact_height: calc( max( var(--height, 80%), var(--min_height, 750px) ) );
+    $top: calc( (100% - calc( max( var(--height, 80%), var(--min_height, 750px) ) )) * 0.5 );
+
+
     .outer_background {
         height: 100%;
         width: 100%;
@@ -28,20 +38,12 @@
         .inner_background {
             position: absolute;
             background-color: var(--inner_color, #000000);
-            width: var(--width, 80%);
-            height: var(--height, 80%);
+            width: $width;
+            height: $fact_height;
             left: calc((100% - var(--width, 80%)) * 0.5);
-            top: calc((100% - var(--height, 80%)) * 0.5);
-            border-radius: 50px;
+            top: $top;
+            border-radius: $radius;
         }
     }
 
-    @media (max-height: 550px) {
-        .outer_background {
-            .inner_background {
-                top: 55px;
-                height: 440px;
-            }
-        }
-    }
 </style>

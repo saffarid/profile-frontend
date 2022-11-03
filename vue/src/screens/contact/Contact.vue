@@ -1,6 +1,5 @@
 <template>
-    <BackgroundCard :type="b_card_types.rect"
-                    :options="{
+    <Card :options="{
                        '--inner_color':'#616161',
                        '--outer_color':'#747474'
                     }">
@@ -19,7 +18,7 @@
                 </template>
             </div>
         </div>
-    </BackgroundCard>
+    </Card>
 
 </template>
 
@@ -27,13 +26,12 @@
    import {
       defineAsyncComponent,
       inject,
-   }                       from 'vue'
-   import { b_card_types } from '../../components/backgrounds_card/b_card_types'
-   import BackgroundCard   from '../../components/backgrounds_card/BackgroundCard'
+   }           from 'vue'
+   import Card from '../../components/Card'
 
    export default {
       name: 'Contact',
-      components: { BackgroundCard },
+      components: { Card },
       setup() {
          const contacts = inject('profile').contact
          let imgIsLoad = false
@@ -46,7 +44,6 @@
          }
 
          return {
-            b_card_types,
             contacts,
          }
       },

@@ -1,10 +1,9 @@
 <template>
-    <BackgroundCard ref="FullCard"
-                    :type="b_card_types.rect"
-                    :options="{'--width':'88%',
+    <Card ref="FullCard"
+          :options="{'--width':'88%',
                                '--height':'85%',
                                '--inner_color': 'var(--primary_color)',
-                               '--outer_color': '#014a5f'}" >
+                               '--outer_color': '#014a5f'}">
         <div class="card thoth">
             <div class="images">
                 <img @click="showImage($event)" class="image products"
@@ -23,24 +22,23 @@
             </div>
         </div>
 
-    </BackgroundCard>
+    </Card>
 </template>
 
 <script>
    import {
       Button,
-   }                       from 'saffarid-ui-kit'
-   import BackgroundCard   from '../../../components/backgrounds_card/BackgroundCard'
-   import { b_card_types } from '../../../components/backgrounds_card/b_card_types'
+   }           from 'saffarid-ui-kit'
+   import Card from '../../../components/Card'
    import {
       ref,
       watch,
-   }                       from 'vue'
+   }           from 'vue'
 
    export default {
       name: 'thoth',
       components: {
-         BackgroundCard,
+         Card,
          Button,
       },
       props: {
@@ -78,7 +76,6 @@
             FullCard,
             width,
             showImage,
-            b_card_types,
          }
       },
    }

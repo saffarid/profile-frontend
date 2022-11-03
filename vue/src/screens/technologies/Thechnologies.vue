@@ -1,7 +1,8 @@
 <template>
-    <BackgroundCard :type="b_card_types.line"
-                    :options="{
+    <Card :options="{
                        '--height': '65%',
+                       '--width': '100%',
+                       '--radius': '0',
                        '--inner_color': '#2b4663',
                        '--outer_color': 'var(--primary_color)'
                     }">
@@ -16,27 +17,25 @@
                 </div>
             </div>
         </div>
-    </BackgroundCard>
+    </Card>
 </template>
 
 <script>
-   import BackgroundCard   from '../../components/backgrounds_card/BackgroundCard'
+   import Card             from '../../components/Card'
    import Item             from './Item'
-   import { b_card_types } from '../../components/backgrounds_card/b_card_types'
    import { technologies } from './tech_desc'
 
    export default {
       name: 'Thechnologies',
       components: {
          Item,
-         BackgroundCard,
+         Card,
       },
       setup() {
          const onWidth = true
 
          return {
             technologies,
-            b_card_types,
             onWidth,
          }
       },
@@ -50,10 +49,10 @@
     }
 
     .tecnologies {
-        padding: 5px;
+        padding: 5px 5px 5px 10%;
 
         .title {
-            font-size: calc(max(21px, min(4vh, 2vw)));
+            font-size: 21px;
             margin-left: 50px;
             margin-top: 10px;
             margin-bottom: 10px;
@@ -84,12 +83,12 @@
 
     .technical-table-on-width {
         display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(87px, 14.597vh));
+        grid-template-columns: repeat(auto-fit, 175px);
         column-gap: calc(min(1vh, 1vw));
 
         .row {
             display: grid;
-            grid-template-rows: 50px repeat(auto-fit, minmax(130px, 7.8125vw));
+            grid-template-rows: 50px repeat(auto-fit, 150px);
 
             row-gap: calc(min(1vh, 1vw));
             align-content: stretch;
@@ -101,6 +100,7 @@
                 letter-spacing: .1em;
                 align-self: center;
                 justify-self: center;
+                font-weight: 500;
             }
         }
     }

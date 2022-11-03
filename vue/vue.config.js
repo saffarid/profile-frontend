@@ -19,7 +19,7 @@ module.exports = {
             entry: './src/main.js',
             template: './public/index.html',
             filename: 'index.html',
-            title: 'Index',
+            title: 'Павлов Никита',
             // chunks: ["index", "chunk-vendors", "chunk-common", ],
         },
     },

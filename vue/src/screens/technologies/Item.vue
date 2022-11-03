@@ -48,14 +48,15 @@
             grid-area: title;
             white-space: pre;
             letter-spacing: .1em;
+            font-weight: 500;
         }
 
         svg {
             grid-area: image;
             min-width: 55px;
             min-height: 55px;
-            width: calc(min(10vh, 5vw));
-            height: calc(min(10vh, 5vw));
+            width: 90px;
+            height: 90px;
         }
 
     }

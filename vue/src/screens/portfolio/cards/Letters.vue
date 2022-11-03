@@ -1,6 +1,5 @@
 <template>
-    <BackgroundCard :type="b_card_types.rect"
-                    :options="{'--width':'88%',
+    <Card :options="{'--width':'88%',
                                '--height':'85%',
                                '--inner_color':'var(--primary_color)',
                                '--outer_color': '#6d3622'}">
@@ -13,28 +12,22 @@
                 <iframe src="./letters/elemy/letter.html" frameborder="0" scrolling="no"/>
             </div>
         </div>
-    </BackgroundCard>
+    </Card>
 </template>
 
 <script>
-   import BackgroundCard   from '../../../components/backgrounds_card/BackgroundCard'
-   import { b_card_types } from '../../../components/backgrounds_card/b_card_types'
+   import Card from '../../../components/Card'
 
    export default {
       name: 'Letters',
       components: {
-         BackgroundCard,
+         Card,
       },
       props: {
          data: {
             type: Object,
             required: false,
          },
-      },
-      setup() {
-         return {
-            b_card_types,
-         }
       },
    }
 </script>
