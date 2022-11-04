@@ -5,7 +5,9 @@
 
         <div class="about_me">
             <div class="desc">
-                <span>{{profile.desc}}</span>
+                <span>Добрый день.</span>
+                <span>Меня зовут Павлов Никита.</span>
+                <span>Занимаюсь разработкой и дизайном сайтов с 2019 года.</span>
             </div>
 
             <div class="list">
@@ -20,24 +22,23 @@
 </template>
 
 <script>
-   import {
-      inject,
-      ref,
-   } from 'vue'
+    import {
+        inject,
+    } from 'vue'
 
-   export default {
-      name: 'Profile',
-      setup() {
-         const profile = inject('profile').profile
+    export default {
+        name: 'Profile',
+        setup() {
+            const profile = inject('profile').profile
 
-         return {
-            profile,
-         }
-      },
-   }
+            return {
+                profile,
+            }
+        },
+    }
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss">
 
     $list_item_height: 35px;
 

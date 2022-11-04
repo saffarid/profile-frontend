@@ -18,7 +18,9 @@
             <div class="d">
                 <div class="title">{{data.title}}</div>
                 <div class="desc">{{data.desc}}</div>
-                <Button class="link">Скачать</Button>
+                <a class="link"
+                   download
+                   href="/thoth/Thoth.exe">Скачать</a>
             </div>
         </div>
 
@@ -26,59 +28,59 @@
 </template>
 
 <script>
-   import {
-      Button,
-   }           from 'saffarid-ui-kit'
-   import Card from '../../../components/Card'
-   import {
-      ref,
-      watch,
-   }           from 'vue'
+    import {
+        Button,
+    }           from 'saffarid-ui-kit'
+    import Card from '../../../components/Card'
+    import {
+        ref,
+        watch,
+    }           from 'vue'
 
-   export default {
-      name: 'thoth',
-      components: {
-         Card,
-         Button,
-      },
-      props: {
-         data: {
-            type: Object,
-            required: false,
-         },
-      },
-      setup() {
-         let activeImage = null
-         const width = ref(0)
-         const FullCard = ref(null)
+    export default {
+        name: 'thoth',
+        components: {
+            Card,
+            Button,
+        },
+        props: {
+            data: {
+                type: Object,
+                required: false,
+            },
+        },
+        setup() {
+            let activeImage = null
+            const width = ref(0)
+            const FullCard = ref(null)
 
-         watch(FullCard, () => {
-            width.value = (300 / 1080) * window.innerWidth
-            window.addEventListener('resize', () => {
-               width.value = (300 / 1080) * window.innerWidth
+            watch(FullCard, () => {
+                width.value = (300 / 1080) * window.innerWidth
+                window.addEventListener('resize', () => {
+                    width.value = (300 / 1080) * window.innerWidth
+                })
             })
-         })
 
-         const showImage = (e) => {
-            console.log(e)
-            if (activeImage != null) {
-               activeImage.target.classList.toggle('show_image')
+            const showImage = (e) => {
+                console.log(e)
+                if (activeImage != null) {
+                    activeImage.target.classList.toggle('show_image')
+                }
+                if (activeImage != null && JSON.stringify(activeImage.target) == JSON.stringify(e.target)) {
+                    activeImage = null
+                    return
+                }
+                e.target.classList.toggle('show_image')
+                activeImage = e
             }
-            if (activeImage != null && JSON.stringify(activeImage.target) == JSON.stringify(e.target)) {
-               activeImage = null
-               return
-            }
-            e.target.classList.toggle('show_image')
-            activeImage = e
-         }
 
-         return {
-            FullCard,
-            width,
-            showImage,
-         }
-      },
-   }
+            return {
+                FullCard,
+                width,
+                showImage,
+            }
+        },
+    }
 </script>
 
 <style lang="scss" scoped>
@@ -127,6 +129,7 @@
             .link {
                 border: 2px solid #4ae2fb;
                 border-radius: 1000000px;
+                text-decoration: none;
             }
         }
     }
