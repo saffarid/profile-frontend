@@ -28,9 +28,7 @@
 </template>
 
 <script>
-    import {
-        Button,
-    }           from 'saffarid-ui-kit'
+
     import Card from '../../../components/Card'
     import {
         ref,
@@ -41,7 +39,6 @@
         name: 'thoth',
         components: {
             Card,
-            Button,
         },
         props: {
             data: {

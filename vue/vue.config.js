@@ -1,18 +1,9 @@
-const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin
-const SpeedMeasurePlugin = require('speed-measure-webpack-plugin')
-const HtmlWebpackPlugin = require("html-webpack-plugin")
-const webpack = require('webpack')
 const os = require('os')
 const p = require('path')
-
-const HappyPack = require('happypack');
-const happyThreadPool = HappyPack.ThreadPool({size: os.cpus().length});
-
 
 module.exports = {
 
     outputDir: p.resolve(__dirname, './../www'),
-    // publicPath: '\./',
 
     pages: {
         index: {
@@ -24,38 +15,14 @@ module.exports = {
         },
     },
 
-    // css: {
-    //     loaderOptions: {
-    //         sass: {
-    //             additionalData: '@import "@/assets/style/variable.scss";'
-    //         }
-    //     }
-    // },
-
     chainWebpack: config => {
         config.plugins.delete('preload')
         config.plugins.delete('prefetch')
-        // config.resolve.alias.set('@', path.resolve('./src'))
     },
 
     configureWebpack: {
 
         plugins: [
-            // new BundleAnalyzerPlugin(),
-            // new HtmlWebpackPlugin(),
-            // new webpack.HashedModuleIdsPlugin(), // в результате хэши не будут неожиданно меняться
-            // new SpeedMeasurePlugin(),
-            // new HappyPack({
-            //     id: 'vue',
-            //     loaders: [
-            //         'sass-loader',
-            //         'vue-loader',
-            //         "css-loader"
-            //     ],
-            //     threadPool: happyThreadPool,
-            //     cache: true,
-            //     verbose: true
-            // })
         ],
         cache: {
             type: 'memory',
