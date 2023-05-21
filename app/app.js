@@ -25,7 +25,7 @@ const urlIndex = path.join(path.resolve(''), './../www/index.html')
     //Нужна инициализация БД
     // await database.init()
     // if (err) return console.error(err)
-    app.listen(APP_PORT, APP_IP, () => {
+    app.listen(APP_PORT,() => {
         console.log(`Wait connection to http://${APP_IP}:${APP_PORT}`)
     })
 // })

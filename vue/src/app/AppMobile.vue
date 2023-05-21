@@ -1,6 +1,6 @@
 <template>
     <div class="app-mobile">
-        <span>В процессе разработки</span>
+        <span>Отображение для мобильных устройств в процессе разработки</span>
     </div>
 </template>
 

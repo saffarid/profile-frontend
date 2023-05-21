@@ -10,16 +10,20 @@ const _cards = (portfolio) => {
          data: portfolio.thoth
       },
       {
-         card: defineAsyncComponent(() => import('./Nadoumchik')),
-         data: portfolio.nadoumchik
+         card: defineAsyncComponent(() => import('./Letters')),
+         data: portfolio.letters
       },
       {
          card: defineAsyncComponent(() => import('./WebInterfaces')),
          data: portfolio.web_devices
       },
       {
-         card: defineAsyncComponent(() => import('./Letters')),
-         data: portfolio.letters
+         card: defineAsyncComponent(() => import('./Nadoumchik')),
+         data: portfolio.nadoumchik
+      },
+      {
+         card: defineAsyncComponent(() => import('./Axelrod')),
+         data: portfolio.axelrod
       },
    ]
 }

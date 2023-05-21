@@ -5,23 +5,24 @@
                                '--inner_color': 'var(--primary_color)',
                                '--outer_color': '#014a5f'}">
         <div class="card thoth">
-            <div class="images">
-                <img @click="showImage($event)" class="image products"
-                     :src="'/img/png/products.png'">
-                <img @click="showImage($event)" class="image purchase"
-                     :src="'/img/png/purchase.png'"/>
-                <img @click="showImage($event)" class="image settings"
-                     :src="'/img/png/settings.png'">
-                <img @click="showImage($event)" class="image types_of_products"
-                     :src="'/img/png/types%20of%20products.png'">
-            </div>
             <div class="d">
                 <div class="title">{{data.title}}</div>
-                <div class="desc">{{data.desc}}</div>
-                <a class="link"
-                   download
-                   href="/thoth/Thoth.exe">Скачать</a>
+                <div class="desc" v-html="data.desc"/>
             </div>
+			<div class="images">
+				<img @click="showImage($event)" class="image products"
+					 :width="width"
+					 :src="'/img/png/products.png'">
+				<img @click="showImage($event)" class="image purchase"
+					 :width="width"
+					 :src="'/img/png/purchase.png'"/>
+				<img @click="showImage($event)" class="image settings"
+					 :width="width"
+					 :src="'/img/png/settings.png'">
+				<img @click="showImage($event)" class="image types_of_products"
+					 :width="width"
+					 :src="'/img/png/types%20of%20products.png'">
+			</div>
         </div>
 
     </Card>
@@ -86,7 +87,7 @@
 
     .thoth {
         display: grid;
-        grid-template-columns: 3fr 1fr;
+        grid-template-columns: 1fr 3fr;
 
         height: 96%;
 
@@ -114,7 +115,9 @@
             .show_image {
                 position: absolute;
                 margin: auto;
-                width: 80vw;
+				padding-right: 10px;
+				width: -moz-available;
+				width: -webkit-fill-available;
             }
         }
 

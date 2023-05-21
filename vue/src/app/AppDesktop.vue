@@ -1,3 +1,4 @@
+
 <template>
 
     <HeadMenu class="top" :screens="_screens" @clickOnItem="activeScreenChange"/>

@@ -73,7 +73,7 @@
             height: 100%;
             width: 100%;
             display: grid;
-            grid-template-rows: repeat(3, 40px);
+            grid-template-rows: repeat(5, 40px);
             row-gap: 5px;
             align-content: center;
             align-items: center;
@@ -102,6 +102,13 @@
                 .whatsapp {
                     --c: #0dc143;
                 }
+
+				.github {
+					--c: #ffffff;
+					&:hover{
+					color: #000000;
+				}
+				}
 
                 .link {
                     display: grid;

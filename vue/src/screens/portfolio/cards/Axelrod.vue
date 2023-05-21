@@ -2,36 +2,36 @@
 	<Card ref="FullCard"
 		  :options="{'--width':'88%',
                                '--height':'85%',
-                               '--inner_color':'var(--primary_color)',
-                               '--outer_color':'rgba(55,65,81, 1)'}">
-		<div class="card web_interfaces">
+                               '--inner_color': 'var(--primary_color)',
+                               '--outer_color': '#014a5f'}">
+		<div class="card axelrod">
 			<div class="d">
 				<div class="title">{{ data.title }}</div>
 				<div class="desc" v-html="data.desc"/>
 			</div>
 			<div class="images">
-				<img @click="showImage($event)" class="image products"
+				<img @click="showImage($event)" class="image"
 					 :width="width"
-					 :src="'/img/png/ccu_1001.png'">
-				<img @click="showImage($event)" class="image products"
+					 :src="'/img/png/axelrod main.png'">
+				<img @click="showImage($event)" class="image"
 					 :width="width"
-					 :src="'/img/png/ats_1204.png'">
-				<img @click="showImage($event)" class="image products"
+					 :src="'/img/png/axelrod edit.png'">
+				<img @click="showImage($event)" class="image"
 					 :width="width"
-					 :src="'/img/png/ats_1204 (1).png'">
+					 :src="'/img/png/axelrod fail.png'">
 			</div>
 		</div>
+
 	</Card>
 </template>
 
 <script>
 import {ref, watch} from 'vue'
 import Card from '../../../components/Card'
-
 export default {
-	name: 'WebInterfaces',
+	name: "Axelrod",
 	components: {
-		Card,
+		Card
 	},
 	props: {
 		data: {
@@ -39,7 +39,7 @@ export default {
 			required: false,
 		},
 	},
-	setup() {
+	setup(){
 		let activeImage = null
 
 		const width = ref(0)
@@ -70,16 +70,14 @@ export default {
 			width,
 			showImage,
 		}
-
-	},
+	}
 }
 </script>
 
 <style lang="scss" scoped>
-
 @import "card";
 
-.web_interfaces {
+.axelrod {
 	display: grid;
 	grid-template-columns: 1fr 3fr;
 	height: 96%;
@@ -119,24 +117,15 @@ export default {
 		grid-template-rows: repeat(4, max-content);
 		row-gap: 5px;
 
+
+		.desc pre {
+			font-size: 13px;
+			font-family: "Segoe UI";
+		}
+
 		.list {
 			display: grid;
 			row-gap: 10px;
-
-			.list_item {
-				display: flex;
-				column-gap: 5px;
-				align-items: center;
-
-				.list_item_index {
-					background-color: var(--secondary_color_B);
-					justify-items: center;
-					justify-content: center;
-					text-align: center;
-					border-radius: 10px;
-					padding: 2px 10px;
-				}
-			}
 		}
 
 		.link {
@@ -146,5 +135,4 @@ export default {
 	}
 
 }
-
 </style>

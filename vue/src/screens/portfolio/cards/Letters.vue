@@ -6,7 +6,7 @@
         <div class="card letters">
             <div class="l">
                 <div class="title">{{data.title}}</div>
-                <div class="desc">{{data.desc}}</div>
+                <div class="desc" v-html="data.desc"/>
             </div>
             <div class="view">
                 <iframe src="./letters/elemy/letter.html" frameborder="0" scrolling="no"/>

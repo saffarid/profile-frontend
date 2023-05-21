@@ -16,6 +16,10 @@ export const technologies = [
                 title: 'JavaScript',
                 image: defineAsyncComponent(() => import('@/assets/images/SvgJS.vue')),
             },
+            {
+                title: 'TypeScript',
+                image: defineAsyncComponent(() => import('@/assets/images/SvgTS.vue')),
+            },
         ],
     },
     {
@@ -37,6 +41,10 @@ export const technologies = [
             {
                 title: 'Java',
                 image: defineAsyncComponent(() => import('@/assets/images/SvgJava.vue')),
+            },
+            {
+                title: 'Python',
+                image: defineAsyncComponent(() => import('@/assets/images/SvgPython.vue')),
             },
         ],
     },
