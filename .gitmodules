@@ -1,0 +1,3 @@
+[submodule "src/modules/ui-kit"]
+	path = src/modules/ui-kit
+	url = https://github.com/saffarid/ui-kit-vue.git

@@ -7,61 +7,74 @@ module.exports = {
 
     pages: {
         index: {
-            entry: './src/main.js',
+            entry: './src/pages/index/main.ts',
             template: './public/index.html',
             filename: 'index.html',
-            title: 'Павлов Никита',
-            // chunks: ["index", "chunk-vendors", "chunk-common", ],
+            title: 'Axelrod',
+            chunks: ['index', 'chunk-vendors', 'chunk-common', 'chunk-index-vendors', 'runtime~index'],
         },
+        // auth: {
+        //     entry: './src/pages/auth/main.ts',
+        //     template: './public/index.html',
+        //     filename: 'auth/index.html',
+        //     title: 'Auth',
+        //     chunks: ['auth', 'chunk-vendors', 'chunk-common', 'chunk-auth-vendors', 'runtime~auth'],
+        // },
     },
 
     chainWebpack: config => {
         config.plugins.delete('preload')
         config.plugins.delete('prefetch')
+
+        const options = module.exports
+        const pages = options.pages
+        const pageKeys = Object.keys(pages)
+
+        const IS_VENDOR = /[\\/]node_modules[\\/]/
+
+        config.optimization
+          .splitChunks({
+              cacheGroups: {
+                  vendors: {
+                      name: 'chunk-vendors',
+                      priority: -10,
+                      chunks: 'initial',
+                      minChunks: 2,
+                      test: IS_VENDOR,
+                      enforce: true,
+                  },
+                  ...pageKeys.map(key => ({
+                      name: `chunk-${key}-vendors`,
+                      priority: -11,
+                      chunks: chunk => chunk.name === key,
+                      test: IS_VENDOR,
+                      enforce: true,
+                  })),
+                  common: {
+                      name: 'chunk-common',
+                      priority: -20,
+                      chunks: 'initial',
+                      minChunks: 2,
+                      reuseExistingChunk: true,
+                      enforce: true,
+                  },
+              },
+          })
     },
 
     configureWebpack: {
 
-        plugins: [
-        ],
+        plugins: [ ],
+
         cache: {
             type: 'memory',
             cacheUnaffected: true,
         },
+
         optimization: {
-            // runtimeChunk: 'single',
-            splitChunks: {
-                cacheGroups: {
-                    vendors: {
-                        name: 'chunk-vendors',
-                        priority: -10,
-                        chunks: 'initial',
-                        // minSize: 20000,
-                        // maxSize: 40000,
-                        minChunks: 1,
-                        test: /[\\/]node_modules[\\/]/,
-                        enforce: true,
-                        // name(module) {
-                        //     // получает имя, то есть node_modules/packageName/not/this/part.js
-                        //     // или node_modules/packageName
-                        //     const packageName = module.context.match(/[\\/]node_modules[\\/](.*?)([\\/]|$)/)[1]
-                        //
-                        //     // имена npm-пакетов можно, не опасаясь проблем, использовать
-                        //     // в URL, но некоторые серверы не любят символы наподобие @
-                        //     return `npm.${packageName.replace('@', '')}`
-                    },
-                    common: {
-                        name: 'chunk-common',
-                        priority: -20,
-                        chunks: 'initial',
-                        // minSize: 2000,
-                        // maxSize: 4000,
-                        minChunks: 1,
-                        reuseExistingChunk: true,
-                        enforce: true,
-                    },
-                },
-            },
+            runtimeChunk: true,
+            minimize: true,
+            minimizer: [ ],
         },
     },
 
